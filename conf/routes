@@ -1,0 +1,31 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# API
+# Service API of the application
+# ~~~~
+
+# User service API
+GET		/api/users  						controllers.api.Users.all()
+GET		/api/user/:uid						controllers.api.Users.detail(uid: String)
+
+# Web UI
+# Web UI of the application
+# ~~~~
+
+# Home page
+GET     /                           controllers.Application.index()
+
+# Registration
+GET     /registrations              controllers.web.Register.list()
+GET     /registrations/new          controllers.web.Register.edit()
+POST    /registrations/register     controllers.web.Register.register()
+
+# Resources
+# ~~~~
+# Map webjar resources
+GET     /webjars/*file              controllers.WebJarAssets.at(file)
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)
